@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, Typography, Grid, Card, CardContent, CardActionArea, Chip } from '@mui/material';
+import { Box, Container, Typography, Grid2 as Grid, Card, CardContent, CardActionArea, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
