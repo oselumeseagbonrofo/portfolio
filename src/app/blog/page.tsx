@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, Typography, Grid2 as Grid, Card, CardContent, CardActionArea, Chip } from '@mui/material';
+import { Box, Container, Typography, Grid, Card, CardContent, CardActionArea, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -56,7 +56,7 @@ export default function Blog() {
 
                 <Grid container spacing={4}>
                     {posts.map((post, index) => (
-                        <Grid xs={12} md={4} key={post.id}>
+                        <Grid key={post.id}>
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
