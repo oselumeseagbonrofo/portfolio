@@ -56,7 +56,7 @@ export default function Blog() {
 
                 <Grid container spacing={4}>
                     {posts.map((post, index) => (
-                        <Grid item xs={12} md={4} key={post.id}>
+                        <Grid xs={12} md={4} key={post.id}>
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
