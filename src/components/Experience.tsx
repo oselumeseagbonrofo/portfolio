@@ -1,8 +1,10 @@
 'use client';
 
 import { Box, Container, Typography, Paper, Grid } from '@mui/material';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { TrendingUp, Users, DollarSign, Award } from 'lucide-react';
+import { ScrollReveal } from '@/components/animations';
+import { useEffect, useState } from 'react';
 
 const experiences = [
     {
@@ -37,20 +39,40 @@ const experiences = [
 ];
 
 export default function Experience() {
+    const [visibleItems, setVisibleItems] = useState<number>(0);
+    const lineControls = useAnimation();
+
+    // Animate the connecting line as items appear
+    useEffect(() => {
+        if (visibleItems > 0) {
+            const lineHeight = (visibleItems / experiences.length) * 100;
+            lineControls.start({
+                height: `${lineHeight}%`,
+                transition: { duration: 0.8, ease: 'easeOut' }
+            });
+        }
+    }, [visibleItems, lineControls]);
+
+    const handleItemVisible = (index: number) => {
+        setVisibleItems(prev => Math.max(prev, index + 1));
+    };
+
     return (
         <Box sx={{ py: 10, bgcolor: 'background.paper', position: 'relative', overflow: 'hidden' }}>
             <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-                <Box sx={{ mb: 8, textAlign: 'center' }}>
-                    <Typography variant="h3" fontWeight="bold" gutterBottom>
-                        Model Evaluation
-                    </Typography>
-                    <Typography variant="h6" color="text.secondary">
-                        Professional experience measured by impact.
-                    </Typography>
-                </Box>
+                <ScrollReveal direction="up" delay={0}>
+                    <Box sx={{ mb: 8, textAlign: 'center' }}>
+                        <Typography variant="h3" fontWeight="bold" gutterBottom>
+                            Model Evaluation
+                        </Typography>
+                        <Typography variant="h6" color="text.secondary">
+                            Professional experience measured by impact.
+                        </Typography>
+                    </Box>
+                </ScrollReveal>
 
                 <Box sx={{ position: 'relative', maxWidth: '800px', mx: 'auto' }}>
-                    {/* Vertical Line */}
+                    {/* Static Vertical Line Background */}
                     <Box
                         sx={{
                             position: 'absolute',
@@ -59,18 +81,33 @@ export default function Experience() {
                             bottom: 0,
                             width: '2px',
                             bgcolor: 'primary.light',
-                            opacity: 0.3,
+                            opacity: 0.2,
                             transform: { md: 'translateX(-50%)' }
                         }}
                     />
 
+                    {/* Animated Connecting Line */}
+                    <motion.div
+                        style={{
+                            position: 'absolute',
+                            left: '20px',
+                            top: 0,
+                            width: '2px',
+                            backgroundColor: 'var(--mui-palette-primary-main)',
+                            transformOrigin: 'top',
+                            transform: 'translateX(-50%)',
+                        }}
+                        initial={{ height: 0 }}
+                        animate={lineControls}
+                    />
+
                     {experiences.map((exp, index) => (
-                        <motion.div
+                        <ScrollReveal
                             key={index}
-                            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            threshold={0.3}
+                            delay={index * 0.15}
+                            direction={index % 2 === 0 ? 'left' : 'right'}
+                            distance={60}
                         >
                             <Box
                                 sx={{
@@ -80,41 +117,55 @@ export default function Experience() {
                                     mb: 6,
                                     position: 'relative'
                                 }}
+                                onMouseEnter={() => handleItemVisible(index)}
                             >
                                 {/* Dot */}
-                                <Box
-                                    sx={{
+                                <motion.div
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    transition={{ delay: index * 0.15 + 0.3, duration: 0.3 }}
+                                    style={{
                                         position: 'absolute',
-                                        left: { xs: 20, md: '50%' },
-                                        width: 16,
-                                        height: 16,
-                                        bgcolor: 'primary.main',
+                                        left: '20px',
+                                        width: '16px',
+                                        height: '16px',
+                                        backgroundColor: 'var(--mui-palette-primary-main)',
                                         borderRadius: '50%',
-                                        transform: { xs: 'translateX(-50%)', md: 'translateX(-50%)' },
-                                        zIndex: 1,
-                                        border: '4px solid white'
+                                        transform: 'translateX(-50%)',
+                                        zIndex: 2,
+                                        border: '4px solid white',
+                                        boxShadow: '0 0 0 4px rgba(25, 118, 210, 0.2)'
                                     }}
                                 />
 
                                 {/* Content */}
                                 <Box sx={{ width: { xs: '100%', md: '50%' }, pl: { xs: 8, md: index % 2 === 0 ? 0 : 8 }, pr: { md: index % 2 === 0 ? 8 : 0 } }}>
-                                    <Paper
-                                        elevation={0}
-                                        sx={{
-                                            p: 3,
-                                            border: '1px solid',
-                                            borderColor: 'divider',
-                                            borderRadius: 4,
-                                            textAlign: { xs: 'left', md: index % 2 === 0 ? 'right' : 'left' },
-                                            transition: 'all 0.3s',
-                                            bgcolor: 'rgba(255, 255, 255, 0.9)',
-                                            backdropFilter: 'blur(8px)',
-                                            '&:hover': {
-                                                borderColor: 'primary.main',
-                                                boxShadow: '0 4px 20px rgba(0,0,0,0.05)'
-                                            }
+                                    <motion.div
+                                        whileHover={{ 
+                                            scale: 1.02,
+                                            transition: { duration: 0.3 }
                                         }}
+                                        style={{ width: '100%' }}
                                     >
+                                        <Paper
+                                            elevation={0}
+                                            sx={{
+                                                p: 3,
+                                                border: '1px solid',
+                                                borderColor: 'divider',
+                                                borderRadius: 4,
+                                                textAlign: { xs: 'left', md: index % 2 === 0 ? 'right' : 'left' },
+                                                transition: 'all 0.3s ease-out',
+                                                bgcolor: 'rgba(255, 255, 255, 0.9)',
+                                                backdropFilter: 'blur(8px)',
+                                                '&:hover': {
+                                                    borderColor: 'primary.main',
+                                                    boxShadow: '0 8px 32px rgba(25, 118, 210, 0.15), 0 0 0 1px rgba(25, 118, 210, 0.1)',
+                                                    bgcolor: 'rgba(255, 255, 255, 0.95)',
+                                                    transform: 'translateY(-2px)'
+                                                }
+                                            }}
+                                        >
                                         <Typography variant="h6" fontWeight="bold" color="primary.main">
                                             {exp.role}
                                         </Typography>
@@ -154,10 +205,11 @@ export default function Experience() {
                                                 </Grid>
                                             ))}
                                         </Grid>
-                                    </Paper>
+                                        </Paper>
+                                    </motion.div>
                                 </Box>
                             </Box>
-                        </motion.div>
+                        </ScrollReveal>
                     ))}
                 </Box>
             </Container>
