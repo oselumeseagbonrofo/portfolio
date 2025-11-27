@@ -127,7 +127,7 @@ export default function TechStack() {
                 >
                     <Grid container spacing={4}>
                         {features.map((tech, index) => (
-                            <Grid item xs={6} md={4} key={index}>
+                            <Grid key={index}>
                                 {/* AnimatedCard for 3D tilt - Requirements 5.1, 5.2 */}
                                 <AnimatedCard
                                     tiltEnabled={true}

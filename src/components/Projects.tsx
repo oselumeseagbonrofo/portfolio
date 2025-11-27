@@ -188,7 +188,7 @@ export default function Projects() {
 
                 <Grid container spacing={4}>
                     {projects.map((project, index) => (
-                        <Grid item xs={12} md={4} key={index}>
+                        <Grid key={index}>
                             {/* Wrap with ScrollReveal for entrance animation */}
                             <ScrollReveal 
                                 threshold={0.5} 

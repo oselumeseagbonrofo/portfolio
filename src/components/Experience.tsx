@@ -181,7 +181,7 @@ export default function Experience() {
 
                                         <Grid container spacing={2} justifyContent={index % 2 === 0 ? 'flex-end' : 'flex-start'}>
                                             {exp.metrics.map((metric, i) => (
-                                                <Grid item key={i}>
+                                                <Grid key={i}>
                                                     <Box sx={{
                                                         display: 'flex',
                                                         alignItems: 'center',
