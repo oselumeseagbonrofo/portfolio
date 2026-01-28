@@ -8,6 +8,7 @@
 
 import React, { createContext, useContext, ReactNode } from 'react';
 import { useAccessibleMotion, useHighContrast, useAriaLiveRegion } from '@/utils/accessibility';
+import { Easing } from 'framer-motion';
 import AriaLiveRegion from './AriaLiveRegion';
 import SkipLink from './SkipLink';
 
@@ -15,7 +16,7 @@ interface AccessibilityContextType {
   prefersReducedMotion: boolean;
   prefersHighContrast: boolean;
   fallbackDuration: number;
-  fallbackEasing: string;
+  fallbackEasing: Easing;
   announce: (message: string, priority?: 'polite' | 'assertive') => void;
 }
 

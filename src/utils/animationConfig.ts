@@ -3,6 +3,8 @@
  * Provides consistent timing and easing settings across the application
  */
 
+import { Easing } from 'framer-motion';
+
 export interface AnimationConfig {
   durations: {
     fast: number;
@@ -10,9 +12,9 @@ export interface AnimationConfig {
     slow: number;
   };
   easings: {
-    entrance: string;
-    exit: string;
-    smooth: string;
+    entrance: Easing;
+    exit: Easing;
+    smooth: Easing;
   };
   stagger: {
     grid: number;

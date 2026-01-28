@@ -5,6 +5,7 @@
  */
 
 import { useEffect, useState } from 'react';
+import { Easing, Variants } from 'framer-motion';
 
 /**
  * Enhanced reduced motion detection with fallback animations
@@ -13,7 +14,7 @@ import { useEffect, useState } from 'react';
 export interface ReducedMotionConfig {
   prefersReducedMotion: boolean;
   fallbackDuration: number;
-  fallbackEasing: string;
+  fallbackEasing: Easing;
 }
 
 export function useAccessibleMotion(): ReducedMotionConfig {
@@ -43,7 +44,7 @@ export function useAccessibleMotion(): ReducedMotionConfig {
   return {
     prefersReducedMotion,
     fallbackDuration: prefersReducedMotion ? 0.2 : 0.6, // Shorter, simpler animations
-    fallbackEasing: prefersReducedMotion ? 'ease' : 'easeOut',
+    fallbackEasing: prefersReducedMotion ? 'easeInOut' : 'easeOut',
   };
 }
 
@@ -224,17 +225,17 @@ export function calculateColorContrast(foreground: string, background: string): 
  * Accessible animation variants for Framer Motion
  * Provides fallback animations that respect reduced motion preferences
  */
-export function getAccessibleVariants(prefersReducedMotion: boolean) {
+export function getAccessibleVariants(prefersReducedMotion: boolean): Variants {
   if (prefersReducedMotion) {
     return {
       hidden: { opacity: 0 },
       visible: { 
         opacity: 1,
-        transition: { duration: 0.2, ease: 'ease' }
+        transition: { duration: 0.2, ease: 'easeInOut' }
       },
       exit: { 
         opacity: 0,
-        transition: { duration: 0.1, ease: 'ease' }
+        transition: { duration: 0.1, ease: 'easeInOut' }
       }
     };
   }

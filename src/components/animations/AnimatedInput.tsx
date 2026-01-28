@@ -12,7 +12,19 @@ interface AnimatedInputProps extends React.InputHTMLAttributes<HTMLInputElement>
 }
 
 const AnimatedInput = forwardRef<HTMLInputElement, AnimatedInputProps>(
-  ({ label, error, focusColor = '#3b82f6', glowIntensity = 0.5, className = '', ...props }, ref) => {
+  ({ 
+    label, 
+    error, 
+    focusColor = '#3b82f6', 
+    glowIntensity = 0.5, 
+    className = '', 
+    // Omit conflicting motion props that might be in props
+    onAnimationStart: _onAnimationStart,
+    onDrag: _onDrag,
+    onDragStart: _onDragStart,
+    onDragEnd: _onDragEnd,
+    ...props 
+  }, ref) => {
     const [isFocused, setIsFocused] = useState(false);
 
     const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
