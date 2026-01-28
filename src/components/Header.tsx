@@ -33,7 +33,7 @@ export function Header() {
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
             <span className="text-white font-bold text-lg">O</span>
           </div>
-          <span className="font-bold text-xl tracking-tight">Agbonrofo</span>
+          <span className="font-bold text-xl tracking-tight">Oselumese Agbonrofo</span>
         </Link>
 
         {/* Desktop Nav */}
