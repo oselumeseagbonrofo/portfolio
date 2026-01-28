@@ -7,7 +7,6 @@
 'use client';
 
 import React from 'react';
-import { Box, Link } from '@mui/material';
 import { motion } from 'framer-motion';
 
 export interface SkipLinkProps {
@@ -16,49 +15,34 @@ export interface SkipLinkProps {
   className?: string;
 }
 
-export function SkipLink({ href, children, className }: SkipLinkProps) {
+export function SkipLink({ href, children, className = '' }: SkipLinkProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: -50 }}
       whileFocus={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2 }}
-      style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        zIndex: 9999,
-      }}
+      className="absolute top-0 left-0 z-[9999]"
     >
-      <Link
+      <a
         href={href}
-        className={className}
-        sx={{
-          position: 'absolute',
-          top: -40,
-          left: 6,
-          background: 'primary.main',
-          color: 'primary.contrastText',
-          padding: '8px 16px',
-          borderRadius: '0 0 4px 4px',
-          textDecoration: 'none',
-          fontSize: '14px',
-          fontWeight: 'bold',
-          zIndex: 9999,
-          transform: 'translateY(-100%)',
-          transition: 'transform 0.2s ease',
-          '&:focus': {
-            transform: 'translateY(0)',
-            outline: '2px solid',
-            outlineColor: 'secondary.main',
-            outlineOffset: '2px',
-          },
-          '&:hover': {
-            background: 'primary.dark',
-          },
-        }}
+        className={`
+          absolute top-[-40px] left-1.5 
+          bg-primary text-primary-foreground 
+          px-4 py-2 
+          rounded-b-md 
+          no-underline 
+          text-sm font-bold 
+          z-[9999] 
+          -translate-y-full 
+          transition-transform duration-200 
+          focus:translate-y-10 
+          focus:outline focus:outline-2 focus:outline-secondary focus:outline-offset-2 
+          hover:bg-primary/90
+          ${className}
+        `}
       >
         {children}
-      </Link>
+      </a>
     </motion.div>
   );
 }

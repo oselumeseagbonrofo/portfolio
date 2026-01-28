@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
-import ThemeRegistry from "@/components/ThemeRegistry";
-import PipelineProgress from "@/components/PipelineProgress";
-import PerformanceMonitor from "@/components/PerformanceMonitor";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { Header } from "@/components/Header";
+import Footer from "@/components/Footer";
 import { AccessibilityProvider } from "@/components/accessibility";
-import { preloadCriticalComponents, preloadOnInteraction } from "@/utils/dynamicImports";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
-  title: "Data Science Portfolio",
-  description: "A showcase of data science projects and machine learning process.",
+  title: "Agbonrofo | Data Scientist & Researcher",
+  description: "Portfolio of a Data Scientist focused on impactful insights and engineering excellence.",
 };
 
 export default function RootLayout({
@@ -19,24 +19,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Initialize performance optimizations
-  if (typeof window !== 'undefined') {
-    preloadCriticalComponents();
-    preloadOnInteraction();
-  }
-
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <ThemeRegistry>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${outfit.variable} font-sans antialiased`}>
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
           <AccessibilityProvider>
-            <PipelineProgress />
-            <PerformanceMonitor />
-            <main id="main-content">
+            <Header />
+            <main id="main-content" className="pt-16">
               {children}
             </main>
+            <Footer />
           </AccessibilityProvider>
-        </ThemeRegistry>
+        </ThemeProvider>
       </body>
     </html>
   );

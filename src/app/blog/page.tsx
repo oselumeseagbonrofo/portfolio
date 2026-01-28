@@ -1,6 +1,5 @@
 'use client';
 
-import { Box, Container, Typography, Grid, Card, CardContent, CardActionArea, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -37,81 +36,81 @@ const posts = [
 
 export default function Blog() {
     return (
-        <Box sx={{ minHeight: '100vh', bgcolor: 'background.default', py: 12 }}>
-            <Container maxWidth="lg">
-                <Box sx={{ mb: 10, textAlign: 'center' }}>
+        <div className="min-h-screen bg-background py-24">
+            <div className="container mx-auto px-4 max-w-6xl">
+                <div className="mb-20 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <Typography variant="h2" fontWeight="bold" gutterBottom>
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
                             Deployment & Insights
-                        </Typography>
-                        <Typography variant="h5" color="text.secondary" sx={{ maxWidth: '600px', mx: 'auto' }}>
+                        </h2>
+                        <h5 className="text-xl text-muted-foreground max-w-2xl mx-auto">
                             Production-ready thoughts on machine learning, engineering, and data strategy.
-                        </Typography>
+                        </h5>
                     </motion.div>
-                </Box>
+                </div>
 
-                <Grid container spacing={4}>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {posts.map((post, index) => (
-                        <Grid key={post.id}>
+                        <div key={post.id} className="h-full">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
+                                className="h-full"
                             >
-                                <Card
-                                    elevation={0}
-                                    sx={{
-                                        height: '100%',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        border: '1px solid',
-                                        borderColor: 'divider',
-                                        borderRadius: 4,
-                                        transition: 'all 0.3s ease',
-                                        '&:hover': {
-                                            transform: 'translateY(-4px)',
-                                            boxShadow: '0 12px 24px -10px rgba(0,0,0,0.1)',
-                                            borderColor: 'primary.main'
-                                        }
-                                    }}
-                                >
-                                    <CardActionArea sx={{ flexGrow: 1, p: 3, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                                        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-                                            <Chip label={post.category} size="small" sx={{ bgcolor: 'primary.50', color: 'primary.main', fontWeight: 600 }} />
-                                            <Box sx={{ display: 'flex', alignItems: 'center', color: 'text.secondary', fontSize: '0.875rem' }}>
-                                                <Clock size={14} style={{ marginRight: 4 }} />
+                                <div className="
+                                    h-full 
+                                    flex flex-col 
+                                    bg-card 
+                                    border border-border 
+                                    rounded-2xl 
+                                    overflow-hidden
+                                    transition-all duration-300
+                                    hover:-translate-y-1
+                                    hover:shadow-lg
+                                    hover:border-primary
+                                    cursor-pointer
+                                    group
+                                ">
+                                    <div className="p-8 flex flex-col flex-grow">
+                                        <div className="w-full flex justify-between items-center mb-6">
+                                            <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-semibold">
+                                                {post.category}
+                                            </span>
+                                            <div className="flex items-center text-muted-foreground text-sm">
+                                                <Clock size={14} className="mr-1" />
                                                 {post.readTime}
-                                            </Box>
-                                        </Box>
+                                            </div>
+                                        </div>
 
-                                        <Typography variant="h5" fontWeight="bold" gutterBottom sx={{ mb: 2, lineHeight: 1.3 }}>
+                                        <h5 className="text-2xl font-bold mb-4 text-foreground leading-tight group-hover:text-primary transition-colors">
                                             {post.title}
-                                        </Typography>
+                                        </h5>
 
-                                        <Typography variant="body1" color="text.secondary" sx={{ mb: 3, flexGrow: 1 }}>
+                                        <p className="text-muted-foreground mb-8 text-base flex-grow leading-relaxed">
                                             {post.excerpt}
-                                        </Typography>
+                                        </p>
 
-                                        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 'auto' }}>
-                                            <Box sx={{ display: 'flex', alignItems: 'center', color: 'text.secondary', fontSize: '0.875rem' }}>
-                                                <Calendar size={14} style={{ marginRight: 4 }} />
+                                        <div className="w-full flex justify-between items-center mt-auto pt-6 border-t border-border/50">
+                                            <div className="flex items-center text-muted-foreground text-sm">
+                                                <Calendar size={14} className="mr-1" />
                                                 {post.date}
-                                            </Box>
-                                            <Box sx={{ display: 'flex', alignItems: 'center', color: 'primary.main', fontWeight: 600 }}>
-                                                Read Article <ArrowRight size={16} style={{ marginLeft: 4 }} />
-                                            </Box>
-                                        </Box>
-                                    </CardActionArea>
-                                </Card>
+                                            </div>
+                                            <div className="flex items-center text-primary font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                                                Read Article <ArrowRight size={16} className="ml-1" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </motion.div>
-                        </Grid>
+                        </div>
                     ))}
-                </Grid>
-            </Container>
-        </Box>
+                </div>
+            </div>
+        </div>
     );
 }

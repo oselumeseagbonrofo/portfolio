@@ -7,7 +7,6 @@
 'use client';
 
 import React from 'react';
-import { Box } from '@mui/material';
 
 export interface AriaLiveRegionProps {
   message: string;
@@ -21,22 +20,13 @@ export function AriaLiveRegion({
   className 
 }: AriaLiveRegionProps) {
   return (
-    <Box
+    <div
       aria-live={priority}
       aria-atomic="true"
-      className={className}
-      sx={{
-        position: 'absolute',
-        left: -10000,
-        width: 1,
-        height: 1,
-        overflow: 'hidden',
-        clip: 'rect(0, 0, 0, 0)',
-        whiteSpace: 'nowrap',
-      }}
+      className={`sr-only ${className || ''}`}
     >
       {message}
-    </Box>
+    </div>
   );
 }
 

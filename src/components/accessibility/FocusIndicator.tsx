@@ -7,7 +7,6 @@
 'use client';
 
 import React from 'react';
-import { Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useFocusManagement, useHighContrast } from '@/utils/accessibility';
 
@@ -24,7 +23,7 @@ export function FocusIndicator({
   focusColor = '#2563eb',
   focusWidth = 2,
   borderRadius = 4,
-  className,
+  className = '',
 }: FocusIndicatorProps) {
   const { focusVisible, focusProps } = useFocusManagement();
   const prefersHighContrast = useHighContrast();
@@ -34,17 +33,10 @@ export function FocusIndicator({
   const effectiveFocusWidth = prefersHighContrast ? focusWidth + 1 : focusWidth;
 
   return (
-    <Box
+    <div
       {...focusProps}
-      className={className}
-      sx={{
-        position: 'relative',
-        display: 'inline-block',
-        borderRadius: `${borderRadius}px`,
-        '&:focus-within': {
-          outline: 'none',
-        },
-      }}
+      className={`relative inline-block focus-within:outline-none rounded-[${borderRadius}px] ${className}`}
+      style={{ borderRadius: `${borderRadius}px` }}
     >
       {children}
       
@@ -71,7 +63,7 @@ export function FocusIndicator({
           }}
         />
       )}
-    </Box>
+    </div>
   );
 }
 
