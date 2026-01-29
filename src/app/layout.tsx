@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
 import { AccessibilityProvider } from "@/components/accessibility";
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -32,6 +33,7 @@ export default function RootLayout({
             <Header />
             <main id="main-content" className="pt-16">
               {children}
+              <Analytics />
             </main>
             <Footer />
           </AccessibilityProvider>
