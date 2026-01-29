@@ -22,7 +22,7 @@ export async function POST(request: Request) {
 
     // Send email using Resend
     const { error } = await resend.emails.send({
-      from: 'New Outreach <hello@oselumesegbonrofo.vercel.app>',
+      from: 'New Outreach <onboarding@resend.dev>',
       to: ['mudi123@duck.com'],
       subject: `New message from ${name}`,
       replyTo: email,
