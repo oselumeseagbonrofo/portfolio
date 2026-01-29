@@ -1,0 +1,25 @@
+---
+title: "The Future Belongs to Expert Collaborators"
+date: "2026-01-29"
+excerpt: "A reflection on AI's impact on the future of work"
+category: "AI & Work"
+readTime: "7 min read"
+---
+
+Since the launch of ChatGPT, Artificial Intelligence (AI) has rapidly moved from a futuristic concept to a defining force in the professional world, impacting daily workflows and strategic roadmaps. This shift presents significant opportunities and crucial questions that force a profound re-evaluation of skills, strategy and talent across board.
+
+Students, myself included, are asking about what skills are needed and questioning the potential of AI taking our future jobs. Industry leaders are determining how to integrate AI to stay competitive while recruiters are searching for a new generation of talent able to navigate this landscape. The answer to these questions lies in collaboration as the Career Fair theme suggests.
+
+This article argues that the future will not be built by AI developers in silos. Instead, it will be built by industry collaboration which will fuse AI’s powerful engine with the deep, human domain expertise that exists in every field. The ability to collaborate combined with deep domain understanding is the most valuable skill, most critical strategy and most sought after talent of the new era.
+
+This new wave of collaboration is not a new concept. It goes back to the roots of AI. The term, “Artificial Intelligence”, was coined at the seminal 1956 Dartmouth Summer Research Project conference. This event was not a meeting of computer scientists alone but a convergence of diverse experts. Mathematicians, logicians, cognitive scientists and researchers all united on a single, audacious idea. From its very inception, AI has been an interdisciplinary field built on the premise that advancing machine intelligence requires combining diverse fields of human expertise.­
+
+Today, that interdisciplinary nature is re-emerging but in a new context. For many students, AI is already a daily partner influencing how we learn and create through tools like NotebookLM, ChatGPT or Flow. In the professional world, this transformation is evolving into a more systemic integration. The most significant workplace advancements are not coming from AI alone but from its application within specific industries thus proving that AI’s greatest strength is unlocked when guided by a domain expert.
+
+The fusion of AI and domain expertise is already happening in Nigeria. For example, Ubenwa, a Nigerian-led health tech company was able to create the world’s largest database of infant cries by collaborating with five hospitals. Their team used the data to train an AI model to predict what does cries mean. As a result, the tool can detect early signs of birth asphyxia scaling this highly specialised skill of doctors to regular individuals thereby saving countless lives.
+
+This pattern is also visible at the national level. The development of N-ATLAS, Nigeria’s first multilingual model capable of Igbo, Yoruba, Hausa and Nigerian accented English was a collaboration between Nigeria’s Federal Ministry of Communications, Innovation and Digital Economy, the tech company Awarri and the informal efforts of thousands of Nigerians who contributed data. This is the blueprint that nations and organisations are adopting. They are building personalised AI developed by their own experts to solve their specific challenges.
+
+These impactful collaborations create a new dynamic. The best AI is not built for an industry but by an industry. This is the pattern we see in the best examples. Ubenwa’s AI was only possible because doctors and nurses collaborated with AI developers to build it. Similarly, the N-ATLAS model was built by government, a tech company, and the public. This defines the new workforce. The future of work goes beyond just using AI. It is about being a domain expert who helps create it. The Information Science and Media Studies expert who helps build a tool to accelerate digital media production or the accountant who helps build an AI to understand local accounting standards will be the most valuable.
+
+In conclusion, the future is not going to be a contest of humans versus AI or humans who use AI versus humans who do not use AI but a new era of expert driven collaboration. For students, this means that your chosen field be it media, business or engineering is more important than ever. Your domain expertise backed by an understanding of AI is the critical ingredient needed to develop more robust AI tools. For industry leaders, the task is to build these hybrid teams while fostering the collaborative culture. This new era opens up incredible opportunities to solve Nigeria and the world’s biggest challenges and empowers small teams or even single individuals to build the future.
