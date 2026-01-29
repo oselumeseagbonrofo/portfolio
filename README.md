@@ -1,6 +1,6 @@
 # Oselumese Agbonrofo - Personal Portfolio
 
-A premium, high-performance personal portfolio website built with modern web technologies. This site showcases my expertise in Software Engineering, AI, and Web/Mobile development, featuring a sleek, dark-themed design with smooth animations and responsive layouts.
+A premium, high-performance personal portfolio website built with modern web technologies. This site showcases my expertise in Product Management, Data Science & AI, and Web/Mobile development, featuring a sleek, dark-themed design with smooth animations and responsive layouts.
 
 ## Tech Stack
 
