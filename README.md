@@ -2,7 +2,7 @@
 
 A premium, high-performance personal portfolio website built with modern web technologies. This site showcases my expertise in Software Engineering, AI, and Web/Mobile development, featuring a sleek, dark-themed design with smooth animations and responsive layouts.
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
 - **Library**: [React 19](https://reactjs.org/)
@@ -11,15 +11,17 @@ A premium, high-performance personal portfolio website built with modern web tec
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Themes**: [Next-Themes](https://github.com/pacocoursey/next-themes) (System-aware Dark Mode)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Email Service**: [Resend](https://resend.com/)
 - **Testing**: [Vitest](https://vitest.dev/) & [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
-## 🎨 Key Features
+## Key Features
 
-- **Personalized Content**: Dynamically showcases my real-world projects, including the **Pro League Manager**, **Dental Clinic Mobile App**, and more.
+- **Get to know me more**: Dynamically showcases my real-world projects, including the **Pro League Manager**, **Dental Clinic Mobile App**, and more.
 - **Micro-animations**: Subtle, premium transitions and hover effects using Framer Motion.
 - **Responsive Design**: Optimized for all screen sizes, from mobile devices to large desktop monitors.
 - **Glassmorphic UI**: Modern aesthetic with blurred backgrounds and crisp borders.
 - **SEO Optimized**: Built with proper semantic HTML and meta tags for better discoverability.
+- **Contact Form**: Fully functional message system integrated with Resend API and client-side validation.
 - **Fast Performance**: Leveraging Next.js Server Components and optimized asset loading.
 
 ## 🛠️ Getting Started
@@ -41,7 +43,14 @@ A premium, high-performance personal portfolio website built with modern web tec
    npm install
    ```
 
-3. Run the development server:
+3. Set up environment variables:
+   - Create a `.env.local` file in the root directory.
+   - Add your [Resend API Key](https://resend.com/api-keys):
+     ```text
+     RESEND_API_KEY=your_resend_api_key_here
+     ```
+
+4. Run the development server:
    ```bash
    npm run dev
    ```

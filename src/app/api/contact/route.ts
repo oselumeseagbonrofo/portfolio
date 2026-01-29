@@ -1,25 +1,21 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
+import { validateContactForm } from '@/utils/validation';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
-    const { name, email, message } = await request.json();
+    const body = await request.json();
+    const { name, email, message } = body;
 
-    // Validate required fields
-    if (!name || !email || !message) {
+    // Validate the form data
+    const validation = validateContactForm(body);
+    if (!validation.isValid) {
+      // Get the first error message
+      const errorMsg = Object.values(validation.errors)[0];
       return NextResponse.json(
-        { error: 'Name, email, and message are required.' },
-        { status: 400 }
-      );
-    }
-
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: 'Please provide a valid email address.' },
+        { error: errorMsg },
         { status: 400 }
       );
     }
