@@ -27,7 +27,7 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-primary font-bold tracking-wider text-sm uppercase mb-4">
-              Software Engineer & AI Enthusiast
+              Product Manager & Data Scientist
             </h2>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 font-outfit text-balance">
               Leveraging technology to <span className="text-primary">preserve culture.</span>

@@ -6,8 +6,6 @@ category: "AI & Culture"
 readTime: "6 min read"
 ---
 
-# The Intersection of AI and African Cultural Preservation
-
 Africa is home to a staggering diversity of languages, traditions, and art forms. However, many of these cultural assets are at risk of being lost in the digital age. As a student of Information Science and Media Studies, I've always been fascinated by how we can use technology not just for progress, but for preservation.
 
 ## The Role of Machine Learning

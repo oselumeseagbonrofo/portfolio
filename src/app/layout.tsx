@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
-  title: "Oselumese Agbonrofo | Data Scientist & Researcher",
+  title: "Oselumese Agbonrofo | Product Manager & Data Scientist",
   description: "Portfolio of a Data Scientist focused on impactful insights and engineering excellence.",
 };
 

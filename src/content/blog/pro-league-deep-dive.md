@@ -6,8 +6,6 @@ category: "Development"
 readTime: "10 min read"
 ---
 
-# Building the Pro League Manager: A Deep Dive
-
 Creating a robust tournament management system requires a careful balance of real-time updates, complex data relationships, and a seamless user experience. Here's how I approached the development of the **Pro League Manager**.
 
 ## The Tech Stack
