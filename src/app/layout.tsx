@@ -13,6 +13,9 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 export const metadata: Metadata = {
   title: "Oselumese Agbonrofo | Product Manager & Data Scientist",
   description: "Portfolio of a Data Scientist focused on impactful insights and engineering excellence.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

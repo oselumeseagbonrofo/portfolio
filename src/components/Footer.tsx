@@ -4,6 +4,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowUp, ExternalLink } from 'lucide-react';
+import Logo from './Logo';
 
 const footerNav = [
   { name: 'About', href: '/#about' },
@@ -37,18 +38,9 @@ export default function Footer() {
             {/* Brand Section */}
             <div className="md:col-span-5 space-y-6">
               <div className="flex items-center space-x-3 group">
-                <motion.div 
-                  whileHover={{ rotate: 180 }}
-                  className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20"
-                >
-                  <span className="text-white font-bold text-xl">O</span>
-                </motion.div>
+                <Logo className="w-11 h-11" />
                 <div className="flex flex-col">
                   <span className="font-bold text-xl tracking-tight">Oselumese Agbonrofo</span>
-                  <div className="flex items-center space-x-2">
-                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Available for new opportunities</span>
-                  </div>
                 </div>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">

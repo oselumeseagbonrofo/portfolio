@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import Logo from './Logo';
 
 const navItems = [
   { name: 'About', href: '/#about', id: 'about' },
@@ -65,15 +66,9 @@ export function Header() {
     >
       <div className="flex items-center space-x-2 group shrink-0 ml-2">
         <Link href="/" className="flex items-center space-x-2">
-          <motion.div
-            whileHover={{ rotate: 180, scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shadow-lg shadow-primary/20"
-          >
-            <span className="text-white font-bold text-lg">O</span>
-          </motion.div>
+          <Logo className="w-9 h-9" />
           <span className="font-bold text-lg tracking-tight hidden sm:inline-block bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
-            Oselumese
+            Oselumese Agbonrofo
           </span>
         </Link>
       </div>
