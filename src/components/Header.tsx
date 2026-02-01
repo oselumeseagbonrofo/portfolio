@@ -146,13 +146,13 @@ export function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-background/20 backdrop-blur-sm z-[-1] md:hidden"
+              className="fixed inset-0 bg-background backdrop-blur-sm z-[-1] md:hidden"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: -20 }}
-              className="absolute top-full left-0 right-0 mt-4 mx-2 p-3 glass rounded-[2rem] md:hidden overflow-hidden shadow-2xl border border-white/10"
+              className="absolute top-full left-0 right-0 mt-4 mx-2 p-3 bg-background rounded-[2rem] md:hidden overflow-hidden border border-white/10"
             >
               <div className="flex flex-col space-y-1">
                 {navItems.map((item) => (
