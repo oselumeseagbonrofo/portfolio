@@ -1,50 +1,20 @@
-/**
- * SkipLink Component
- * Provides keyboard navigation to skip to main content
- * Essential for screen reader and keyboard-only users
- */
-
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { FocusIndicator } from './FocusIndicator';
 
-export interface SkipLinkProps {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-}
-
-export function SkipLink({ href, children, className = '' }: SkipLinkProps) {
+export function SkipLink() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -50 }}
-      whileFocus={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
-      className="absolute top-0 left-0 z-[9999]"
-    >
-      <a
-        href={href}
-        className={`
-          absolute top-[-40px] left-1.5 
-          bg-primary text-primary-foreground 
-          px-4 py-2 
-          rounded-b-md 
-          no-underline 
-          text-sm font-bold 
-          z-[9999] 
-          -translate-y-full 
-          transition-transform duration-200 
-          focus:translate-y-10 
-          focus:outline focus:outline-2 focus:outline-secondary focus:outline-offset-2 
-          hover:bg-primary/90
-          ${className}
-        `}
-      >
-        {children}
-      </a>
-    </motion.div>
+    <div className="fixed top-4 left-4 z-[100] translate-y-[-150%] focus-within:translate-y-0 transition-transform duration-300">
+      <FocusIndicator>
+        <a
+          href="#main-content"
+          className="bg-primary text-white px-6 py-3 rounded-full font-bold shadow-lg block"
+        >
+          Skip to main content
+        </a>
+      </FocusIndicator>
+    </div>
   );
 }
-
 export default SkipLink;

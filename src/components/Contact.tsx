@@ -130,6 +130,7 @@ export default function Contact() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       className="flex items-center space-x-2 text-green-600 dark:text-green-400 bg-green-500/10 px-4 py-3 rounded-xl"
+                      role="alert"
                     >
                       <CheckCircle2 size={20} />
                       <span className="font-medium">Message sent successfully!</span>
@@ -141,6 +142,7 @@ export default function Contact() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       className="flex items-center space-x-2 text-red-600 dark:text-red-400 bg-red-500/10 px-4 py-3 rounded-xl"
+                      role="alert"
                     >
                       <AlertCircle size={20} />
                       <span className="font-medium">{errorMessage}</span>

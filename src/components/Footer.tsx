@@ -86,8 +86,8 @@ export default function Footer() {
               <div className="bg-secondary/30 rounded-3xl p-6 border border-white/5 space-y-4">
                 <p className="text-sm font-medium">Have a project in mind or just want to chat?</p>
                 <Link
-                  href="mailto:oselumeseagbonrofo@gmail.com"
-                  className="block w-full py-3 px-6 rounded-2xl bg-foreground text-background font-bold text-center hover:opacity-90 transition-opacity"
+                  href="/#contact"
+                  className="block w-full py-3 px-6 rounded-2xl bg-primary text-primary-foreground font-bold text-center hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
                 >
                   Say Hello
                 </Link>

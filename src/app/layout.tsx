@@ -4,7 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
-import { AccessibilityProvider } from "@/components/accessibility";
+import { AccessibilityProvider, SkipLink } from "@/components/accessibility";
 import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -33,6 +33,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AccessibilityProvider>
+            <SkipLink />
             <Header />
             <main id="main-content" className="pt-16">
               {children}
