@@ -20,15 +20,15 @@ const projects = [
     category: 'Mobile Development',
     description: 'A cross-platform app with offline persistence using Expo SQLite for managing patient records and clinic visitations.',
     tags: ['React Native', 'Expo Router', 'SQLite', 'TypeScript'],
-    link: '#',
-    github: 'https://github.com/oselumeseagbonrofo'
+    link: 'https://github.com/oselumeseagbonrofo/Dental-Clinic-App',
+    github: 'https://github.com/oselumeseagbonrofo/Dental-Clinic-App'
   },
   {
     title: 'Book Donation Web App',
     category: 'Web Development',
     description: 'Full-stack platform for a non-profit organization to facilitate book donations and reception, featuring a robust relational database.',
     tags: ['Django', 'PostgreSQL', 'Python', 'Bootstrap'],
-    link: 'https://github.com/oselumeseagbonrofo/BookMe',
+    link: 'https://bookme-rho.vercel.app',
     github: 'https://github.com/oselumeseagbonrofo/BookMe'
   }
 ];
