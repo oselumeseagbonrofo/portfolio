@@ -16,7 +16,7 @@ const AnimatedInput = forwardRef<HTMLInputElement, AnimatedInputProps>(
     label, 
     error, 
     focusColor = '#3b82f6', 
-    glowIntensity = 0.5, 
+    glowIntensity = 0.5,
     className = '', 
     // Omit conflicting motion props that might be in props
     onAnimationStart: _onAnimationStart,
@@ -25,6 +25,7 @@ const AnimatedInput = forwardRef<HTMLInputElement, AnimatedInputProps>(
     onDragEnd: _onDragEnd,
     ...props 
   }, ref) => {
+    void glowIntensity;
     const [isFocused, setIsFocused] = useState(false);
 
     const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -72,7 +73,7 @@ const AnimatedInput = forwardRef<HTMLInputElement, AnimatedInputProps>(
             className={`
               w-full px-3 py-2 border rounded-md
               transition-colors duration-300
-              focus:outline-none focus:ring-0
+              focus:ring-0
               ${error ? 'border-red-500' : 'border-gray-300'}
               ${className}
             `}
@@ -82,9 +83,6 @@ const AnimatedInput = forwardRef<HTMLInputElement, AnimatedInputProps>(
                 : error 
                   ? '#ef4444' 
                   : '#d1d5db',
-              boxShadow: isFocused 
-                ? `0 0 0 3px ${focusColor}${Math.round(glowIntensity * 255).toString(16).padStart(2, '0')}` 
-                : '0 0 0 0px transparent',
             }}
             transition={{
               duration: animationConfig.durations.fast,

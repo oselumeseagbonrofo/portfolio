@@ -1,6 +1,6 @@
 import { getPostBySlug, getPostSlugs } from '@/lib/blog';
 import { notFound } from 'next/navigation';
-import { Calendar, Clock, ChevronLeft } from 'lucide-react';
+import { Calendar, ChevronLeft, Clock } from 'lucide-react';
 import Link from 'next/link';
 
 export async function generateStaticParams() {
@@ -12,57 +12,47 @@ export async function generateStaticParams() {
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  
-  try {
-    const post = await getPostBySlug(slug);
+  const post = await getPostBySlug(slug).catch(() => null);
 
-    return (
-      <article className="min-h-screen bg-background py-24">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <Link 
-            href="/blog" 
-            className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors mb-12 group"
-          >
-            <ChevronLeft size={20} className="mr-1 group-hover:-translate-x-1 transition-transform" />
-            Back to Blog
-          </Link>
-
-          <header className="mb-12">
-            <div className="flex items-center space-x-4 mb-6">
-              <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-semibold">
-                {post.category}
-              </span>
-              <div className="flex items-center text-muted-foreground text-sm">
-                <Calendar size={16} className="mr-1" />
-                {post.date}
-              </div>
-              <div className="flex items-center text-muted-foreground text-sm">
-                <Clock size={16} className="mr-1" />
-                {post.readTime}
-              </div>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-              {post.title}
-            </h1>
-            
-            <p className="text-xl text-muted-foreground leading-relaxed italic">
-              {post.excerpt}
-            </p>
-          </header>
-
-          <div 
-            className="prose prose-lg dark:prose-invert max-w-none 
-              prose-headings:font-bold prose-headings:text-foreground
-              prose-p:text-muted-foreground prose-p:leading-relaxed
-              prose-strong:text-foreground prose-a:text-primary hover:prose-a:underline
-              prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none"
-            dangerouslySetInnerHTML={{ __html: post.content }} 
-          />
-        </div>
-      </article>
-    );
-  } catch (error) {
+  if (!post) {
     notFound();
   }
+
+  return (
+    <article className="min-h-screen py-28 md:py-32">
+      <div className="container-wide max-w-4xl">
+        <Link
+          href="/blog"
+          className="story-link mb-10 inline-flex rounded-full border border-border/75 bg-card/70 px-4 py-2 text-[0.62rem] text-muted-foreground hover:text-primary"
+        >
+          <ChevronLeft size={14} />
+          Back to Blog
+        </Link>
+
+        <header className="blueprint-card grain-panel rounded-[1.3rem] p-6 md:p-8">
+          <div className="mb-5 flex flex-wrap items-center gap-2.5 text-xs">
+            <span className="rounded-full border border-primary/35 bg-primary/12 px-3 py-1.5 font-mono uppercase tracking-[0.2em] text-primary">
+              {post.category}
+            </span>
+            <span className="inline-flex items-center gap-1 rounded-full border border-border/70 bg-background/70 px-3 py-1.5 text-muted-foreground">
+              <Calendar size={13} />
+              {post.date}
+            </span>
+            <span className="inline-flex items-center gap-1 rounded-full border border-border/70 bg-background/70 px-3 py-1.5 text-muted-foreground">
+              <Clock size={13} />
+              {post.readTime}
+            </span>
+          </div>
+
+          <h1 className="font-display text-4xl leading-[0.98] text-balance md:text-6xl">{post.title}</h1>
+          <p className="mt-5 max-w-2xl text-base italic leading-relaxed text-muted-foreground md:text-lg">{post.excerpt}</p>
+        </header>
+
+        <div
+          className="prose prose-lg mt-10 max-w-none prose-headings:font-display prose-headings:text-foreground prose-p:text-foreground/87 prose-p:leading-relaxed prose-strong:text-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:text-accent prose-li:text-foreground/85 prose-code:rounded prose-code:bg-secondary/60 prose-code:px-1 prose-code:py-0.5 prose-code:text-foreground prose-code:before:content-none prose-code:after:content-none"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+      </div>
+    </article>
+  );
 }

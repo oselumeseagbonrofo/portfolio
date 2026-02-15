@@ -3,57 +3,54 @@
 import * as React from 'react';
 import { motion } from 'framer-motion';
 
-export default function Logo({ className = "w-10 h-10" }: { className?: string }) {
+export default function Logo({ className = 'h-10 w-10' }: { className?: string }) {
+  const uniqueId = React.useId().replace(/:/g, '');
+  const glowId = `${uniqueId}-glow`;
+
   return (
-    <motion.div 
+    <motion.div
       className={className}
-      initial={{ opacity: 0, scale: 0.8 }}
+      initial={{ opacity: 0, scale: 0.88 }}
       animate={{ opacity: 1, scale: 1 }}
-      whileHover={{ scale: 1.1, rotate: 5 }}
-      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+      whileHover={{ scale: 1.06, rotate: -2 }}
+      transition={{ type: 'spring', stiffness: 340, damping: 16 }}
+      aria-hidden="true"
     >
-      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <svg viewBox="0 0 96 96" className="h-full w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#0D5DF2" />
-            <stop offset="100%" stopColor="#D4AF37" />
-          </linearGradient>
-          
-          <mask id="overlap-mask">
-            <rect width="100" height="100" fill="white" />
-            <path 
-              d="M45 80 L70 20" 
-              stroke="black" 
-              strokeWidth="12" 
-              strokeLinecap="round" 
-            />
-          </mask>
+          <filter id={glowId} x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4" />
+          </filter>
         </defs>
 
-        {/* The 'O' */}
-        <circle 
-          cx="38" 
-          cy="50" 
-          r="28" 
-          stroke="url(#logo-gradient)" 
-          strokeWidth="9" 
-        />
-
-        {/* The 'A' Structure */}
-        <path 
-          d="M45 80 L70 20 L95 80" 
-          stroke="url(#logo-gradient)" 
-          strokeWidth="9" 
-          strokeLinecap="round" 
+        <path
+          d="M16 18.5C16 15.4624 18.4624 13 21.5 13H74.5C77.5376 13 80 15.4624 80 18.5V77.5C80 80.5376 77.5376 83 74.5 83H21.5C18.4624 83 16 80.5376 16 77.5V18.5Z"
+          stroke="hsl(var(--primary))"
+          strokeWidth="5"
           strokeLinejoin="round"
         />
-        
-        {/* The 'A' Crossbar */}
-        <path 
-          d="M54 62 H86" 
-          stroke="url(#logo-gradient)" 
-          strokeWidth="9" 
-          strokeLinecap="round" 
+
+        <path
+          d="M25 47.5C25 35.07 35.07 25 47.5 25C59.93 25 70 35.07 70 47.5C70 59.93 59.93 70 47.5 70"
+          stroke="hsl(var(--primary))"
+          strokeWidth="7"
+          strokeLinecap="round"
+        />
+        <path
+          d="M44 70L58 29L72 70"
+          stroke="hsl(var(--primary))"
+          strokeWidth="7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path d="M51.5 56H66.5" stroke="hsl(var(--primary))" strokeWidth="7" strokeLinecap="round" />
+
+        <path
+          d="M70.4 21.8L75.8 27.2"
+          stroke="hsl(var(--foreground))"
+          strokeOpacity="0.45"
+          strokeWidth="2"
+          filter={`url(#${glowId})`}
         />
       </svg>
     </motion.div>

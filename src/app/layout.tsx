@@ -1,20 +1,16 @@
-import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { Header } from "@/components/Header";
-import Footer from "@/components/Footer";
-import { AccessibilityProvider, SkipLink } from "@/components/accessibility";
-import { Analytics } from "@vercel/analytics/next"
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
+import type { Metadata } from 'next';
+import './globals.css';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import { Header } from '@/components/Header';
+import Footer from '@/components/Footer';
+import { AccessibilityProvider, SkipLink } from '@/components/accessibility';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
-  title: "Oselumese Agbonrofo | Product Manager & Data Scientist",
-  description: "Portfolio of a Data Scientist focused on impactful insights and engineering excellence.",
+  title: 'Oselumese Agbonrofo | Product Manager & Data Scientist',
+  description: 'Portfolio of a Data Scientist focused on impactful insights and engineering excellence.',
   icons: {
-    icon: "/favicon.svg",
+    icon: '/favicon.svg',
   },
 };
 
@@ -25,17 +21,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${outfit.variable} font-sans antialiased`}>
+      <body className="font-sans">
         <ThemeProvider
           attribute="data-theme"
-          defaultTheme="dark"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <AccessibilityProvider>
             <SkipLink />
             <Header />
-            <main id="main-content" className="pt-16">
+            <main id="main-content" className="pt-20 md:pt-24">
               {children}
               <Analytics />
             </main>

@@ -1,8 +1,8 @@
 'use client';
 
 import * as React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, MessageCircle, Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { AlertCircle, CheckCircle2, Loader2, Mail, MessageCircle, Send } from 'lucide-react';
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
 
@@ -36,7 +36,6 @@ export default function Contact() {
       setEmail('');
       setMessage('');
 
-      // Reset to idle after 5 seconds
       setTimeout(() => setStatus('idle'), 5000);
     } catch (err) {
       setStatus('error');
@@ -45,125 +44,154 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="section-shell pb-10">
       <div className="container-wide">
-        <div className="max-w-4xl mx-auto rounded-[2rem] bg-primary/5 border border-primary/20 overflow-hidden relative">
-          {/* Decorative glow */}
-          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-primary/20 rounded-full blur-[80px]" />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-primary/10">
-              <h2 className="text-3xl md:text-4xl font-bold font-outfit mb-6">Let&apos;s build something impactful</h2>
-              <p className="text-muted-foreground mb-8">
-                I&apos;m always open to discussing web/mobile development, data science projects, or how AI can be used for cultural preservation.
+        <div className="blueprint-card grain-panel overflow-hidden rounded-[1.7rem] border-border/85">
+          <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="relative border-b border-border/80 px-6 py-8 md:px-8 lg:border-b-0 lg:border-r lg:px-10 lg:py-10">
+              <div className="pointer-events-none absolute -left-14 top-0 h-40 w-40 rounded-full bg-primary/18 blur-3xl" />
+
+              <span className="overline">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Let&apos;s Build
+              </span>
+              <h2 className="section-title mt-6 text-balance text-[2.4rem] md:text-5xl">
+                Open to internships and high-impact collaborations.
+              </h2>
+              <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
+                Tell me about your product idea, team challenge, or data workflow. I reply quickly when the mission is
+                clear and meaningful.
               </p>
-              
-              <div className="space-y-6">
-                <a href="mailto:oselumeseagbonrofo@gmail.com" className="flex items-center space-x-4 group">
-                  <div className="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Mail size={24} />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Email</div>
-                    <div className="font-semibold">oselumeseagbonrofo@gmail.com</div>
-                  </div>
+
+              <div className="mt-8 space-y-4">
+                <a
+                  href="mailto:oselumeseagbonrofo@gmail.com"
+                  className="flex items-start gap-3 rounded-[1rem] border border-border/75 bg-background/65 px-4 py-3 transition-colors hover:border-primary/45"
+                >
+                  <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-[0.75rem] bg-primary/12 text-primary">
+                    <Mail size={16} />
+                  </span>
+                  <span>
+                    <span className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-muted-foreground">Email</span>
+                    <span className="mt-1 block text-sm font-medium text-foreground">oselumeseagbonrofo@gmail.com</span>
+                  </span>
                 </a>
-                <div className="flex items-center space-x-4 group">
-                  <div className="w-12 h-12 rounded-2xl bg-secondary text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <MessageCircle size={24} />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Availability</div>
-                    <div className="font-semibold">Open for internships and collaborations</div>
-                  </div>
+
+                <div className="flex items-start gap-3 rounded-[1rem] border border-border/75 bg-background/65 px-4 py-3">
+                  <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-[0.75rem] bg-accent/15 text-accent">
+                    <MessageCircle size={16} />
+                  </span>
+                  <span>
+                    <span className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-muted-foreground">Availability</span>
+                    <span className="mt-1 block text-sm font-medium text-foreground">Open for product and engineering internships</span>
+                  </span>
                 </div>
               </div>
             </div>
 
-            <div className="p-8 md:p-12 flex flex-col justify-center">
-              <form className="space-y-4" onSubmit={handleSubmit}>
-                <div>
-                  <label htmlFor="name" className="text-sm font-bold mb-2 block uppercase tracking-wider text-muted-foreground">Name</label>
-                  <input 
-                    id="name"
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                    disabled={status === 'loading'}
-                    className="w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all disabled:opacity-50"
-                    placeholder="Your name"
-                  />
+            <div className="px-6 py-8 md:px-8 lg:px-10 lg:py-10">
+              <form className="space-y-4" onSubmit={handleSubmit} autoComplete="off">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="name" className="mb-2 block font-mono text-[0.62rem] uppercase tracking-[0.22em] text-muted-foreground">
+                      Name
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      autoComplete="name"
+                      required
+                      disabled={status === 'loading'}
+                      className="form-field"
+                      placeholder="Your name"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="mb-2 block font-mono text-[0.62rem] uppercase tracking-[0.22em] text-muted-foreground">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      autoComplete="email"
+                      inputMode="email"
+                      required
+                      disabled={status === 'loading'}
+                      className="form-field"
+                      placeholder="you@company.com"
+                    />
+                  </div>
                 </div>
+
                 <div>
-                  <label htmlFor="email" className="text-sm font-bold mb-2 block uppercase tracking-wider text-muted-foreground">Email</label>
-                  <input 
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    disabled={status === 'loading'}
-                    className="w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all disabled:opacity-50"
-                    placeholder="your@email.com"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="text-sm font-bold mb-2 block uppercase tracking-wider text-muted-foreground">Message</label>
-                  <textarea 
+                  <label htmlFor="message" className="mb-2 block font-mono text-[0.62rem] uppercase tracking-[0.22em] text-muted-foreground">
+                    Message
+                  </label>
+                  <textarea
                     id="message"
-                    rows={4}
+                    name="message"
+                    rows={6}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
+                    autoComplete="off"
                     required
                     disabled={status === 'loading'}
-                    className="w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none disabled:opacity-50"
-                    placeholder="Tell me about your project..."
+                    className="form-field resize-none"
+                    placeholder="Tell me about your project and timeline…"
                   />
                 </div>
 
-                {/* Status Feedback */}
-                <AnimatePresence mode="wait">
-                  {status === 'success' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="flex items-center space-x-2 text-green-600 dark:text-green-400 bg-green-500/10 px-4 py-3 rounded-xl"
-                      role="alert"
-                    >
-                      <CheckCircle2 size={20} />
-                      <span className="font-medium">Message sent successfully!</span>
-                    </motion.div>
-                  )}
-                  {status === 'error' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="flex items-center space-x-2 text-red-600 dark:text-red-400 bg-red-500/10 px-4 py-3 rounded-xl"
-                      role="alert"
-                    >
-                      <AlertCircle size={20} />
-                      <span className="font-medium">{errorMessage}</span>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <div aria-live="polite" aria-atomic="true">
+                  <AnimatePresence mode="wait">
+                    {status === 'success' ? (
+                      <motion.div
+                        key="success"
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        className="flex items-center gap-2 rounded-[0.95rem] border border-emerald-500/35 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-700 dark:text-emerald-300"
+                      >
+                        <CheckCircle2 size={17} />
+                        Message sent successfully.
+                      </motion.div>
+                    ) : null}
 
-                <button 
+                    {status === 'error' ? (
+                      <motion.div
+                        key="error"
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        className="flex items-center gap-2 rounded-[0.95rem] border border-red-500/35 bg-red-500/10 px-4 py-3 text-sm text-red-700 dark:text-red-300"
+                      >
+                        <AlertCircle size={17} />
+                        {errorMessage}
+                      </motion.div>
+                    ) : null}
+                  </AnimatePresence>
+                </div>
+
+                <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full bg-primary text-white font-bold py-4 rounded-xl flex items-center justify-center space-x-2 hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 group disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-[1rem] border border-primary/60 bg-primary px-5 py-3.5 text-sm font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {status === 'loading' ? (
                     <>
-                      <Loader2 size={18} className="animate-spin" />
-                      <span>Sending...</span>
+                      <Loader2 size={16} className="animate-spin" />
+                      Sending
                     </>
                   ) : (
                     <>
-                      <span>Send Message</span>
-                      <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                      Send Message
+                      <Send size={16} />
                     </>
                   )}
                 </button>

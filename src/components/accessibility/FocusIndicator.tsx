@@ -35,7 +35,7 @@ export function FocusIndicator({
   return (
     <div
       {...focusProps}
-      className={`relative inline-block focus-within:outline-none rounded-[${borderRadius}px] ${className}`}
+      className={`relative inline-block rounded-[${borderRadius}px] ${className}`}
       style={{ borderRadius: `${borderRadius}px` }}
     >
       {children}
@@ -57,9 +57,6 @@ export function FocusIndicator({
             borderRadius: `${borderRadius + effectiveFocusWidth}px`,
             pointerEvents: 'none',
             zIndex: 1,
-            boxShadow: prefersHighContrast 
-              ? `0 0 0 1px #ffffff` 
-              : `0 0 0 ${effectiveFocusWidth}px rgba(37, 99, 235, 0.2)`,
           }}
         />
       )}

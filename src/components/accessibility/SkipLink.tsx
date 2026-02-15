@@ -19,7 +19,7 @@ export function SkipLink({
       <FocusIndicator>
         <a
           href={href}
-          className="bg-primary text-white px-6 py-3 rounded-full font-bold shadow-lg block"
+          className="bg-primary text-white px-6 py-3 rounded-full font-bold block"
         >
           {children}
         </a>

@@ -16,7 +16,7 @@ A premium, high-performance personal portfolio website built with modern web tec
 
 ## Key Features
 
-- **Get to know me more**: Dynamically showcases my real-world projects, including the **Pro League Manager**, **Dental Clinic Mobile App**, and more.
+- **Get to know me more**: Dynamically showcases my real-world projects, including **Groove**, **Garden Gems**, **Pro League Manager**, and more.
 - **Micro-animations**: Subtle, premium transitions and hover effects using Framer Motion.
 - **Responsive Design**: Optimized for all screen sizes, from mobile devices to large desktop monitors.
 - **Glassmorphic UI**: Modern aesthetic with blurred backgrounds and crisp borders.

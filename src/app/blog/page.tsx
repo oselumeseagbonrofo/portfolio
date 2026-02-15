@@ -1,5 +1,3 @@
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import { getAllPosts } from '@/lib/blog';
 import { BlogList } from './BlogList';
 
@@ -7,15 +5,20 @@ export default async function Blog() {
   const posts = await getAllPosts();
 
   return (
-    <div className="min-h-screen bg-background py-24">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="mb-20 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">
-              Sharing my <span className="text-primary">technical journey.</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Insights on AI, software engineering, and the projects I'm building to make an impact.
-            </p>
+    <div className="min-h-screen py-28 md:py-32">
+      <div className="container-wide">
+        <div className="mb-14 grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+          <div>
+            <span className="overline">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              Notes and Essays
+            </span>
+            <h1 className="section-title mt-6 text-balance">Documenting lessons from products, AI, and implementation.</h1>
+          </div>
+
+          <p className="section-subtitle lg:justify-self-end">
+            Technical reflections on what worked, what failed, and how to build better systems with clarity.
+          </p>
         </div>
 
         <BlogList posts={posts} />

@@ -5,74 +5,144 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
 
+const quickFacts = [
+  { value: '2+', label: 'Hackathons launched' },
+  { value: '5', label: 'Team members led' },
+  { value: '20%', label: 'Workflow efficiency gain' },
+];
+
+const focusAreas = [
+  'Culture-preserving digital products',
+  'Applied machine learning with clear outcomes',
+  'Web systems built for resilience and speed',
+];
+
+const socialLinks = [
+  {
+    label: 'GitHub',
+    href: 'https://github.com/oselumeseagbonrofo',
+    icon: Github,
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/in/oselumese-agbonrofo',
+    icon: Linkedin,
+  },
+  {
+    label: 'Email',
+    href: 'mailto:oselumeseagbonrofo@gmail.com',
+    icon: Mail,
+  },
+];
+
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-        <div
-          className="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-          }}
-        />
-      </div>
-
+    <section id="about" className="section-shell pt-28 md:pt-36">
       <div className="container-wide">
-        <div className="max-w-3xl">
+        <div className="grid items-start gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.55, ease: 'easeOut' }}
+            className="relative"
           >
-            <h2 className="text-primary font-bold tracking-wider text-sm uppercase mb-4">
-              Product Manager & Data Scientist
-            </h2>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 font-outfit text-balance">
-              Leveraging technology to <span className="text-primary">preserve culture.</span>
+            <span className="overline">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              Product Manager and Data Scientist
+            </span>
+
+            <h1 className="section-title mt-6 max-w-4xl text-balance">
+              Building technology that protects culture and proves impact.
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
-              Hi, I'm Oselumese Agbonrofo. A student at Pan-Atlantic University passionate about Data Science, 
-              AI, and Web Development. I build solutions that merge innovation with impact.
+
+            <p className="section-subtitle mt-6">
+              I am Oselumese Agbonrofo, a Pan-Atlantic University student focused on data science, AI, and modern web
+              engineering. I shape practical products where research clarity meets execution speed.
             </p>
 
-            <div className="flex flex-wrap gap-4 mb-12">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="#projects"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-white font-semibold hover:bg-primary/90 transition-all group shadow-lg shadow-primary/25"
+                className="inline-flex items-center gap-2 rounded-[0.95rem] border border-primary/60 bg-primary px-5 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-primary/90"
               >
                 View Projects
-                <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={17} />
               </Link>
+
               <Link
-                href="/resume.pdf"
+                href="/Oselumese%20Agbonrofo%20resume.pdf"
                 target="_blank"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-border hover:bg-secondary transition-all font-semibold"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-[0.95rem] border border-border/85 bg-card/80 px-5 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-foreground transition-colors hover:border-primary/45 hover:text-primary"
               >
                 View Resume
-                <Download size={18} className="ml-2" />
+                <Download size={17} />
               </Link>
             </div>
 
-            <div className="flex items-center space-x-6">
-              <Link href="https://github.com/oselumeseagbonrofo" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Github size={24} />
-              </Link>
-              <Link href="https://linkedin.com/in/oselumese-agbonrofo" target="_blank" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Linkedin size={24} />
-              </Link>
-              <Link href="mailto:oselumeseagbonrofo@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Mail size={24} />
-              </Link>
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              {socialLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  target={item.href.startsWith('http') ? '_blank' : undefined}
+                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border/75 bg-card/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.17em] text-muted-foreground transition-[transform,color,border-color] hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+                >
+                  <item.icon size={14} />
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
+              {quickFacts.map((fact, index) => (
+                <motion.div
+                  key={fact.label}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25 + index * 0.08, duration: 0.45 }}
+                  className="blueprint-card grain-panel rounded-[1.05rem] px-4 py-4"
+                >
+                  <p className="font-display text-3xl leading-none text-primary">{fact.value}</p>
+                  <p className="mt-2 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">{fact.label}</p>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
-        </div>
-      </div>
 
-      {/* Decorative SVG grid */}
-      <div className="absolute inset-0 -z-50 h-full w-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
-        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-primary opacity-10 blur-[100px]"></div>
+          <motion.aside
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.55 }}
+            className="relative"
+          >
+            <div className="blueprint-card grain-panel rounded-[1.5rem] border border-border/85 p-7 md:p-8">
+              <p className="font-mono text-[0.65rem] uppercase tracking-[0.29em] text-muted-foreground">Current Focus</p>
+              <h2 className="mt-5 max-w-sm font-display text-3xl leading-[1.03] text-balance md:text-[2.3rem]">
+                Designing digital infrastructure for African stories and communities.
+              </h2>
+
+              <ul className="mt-6 space-y-4">
+                {focusAreas.map((area) => (
+                  <li key={area} className="flex items-start gap-3 text-sm leading-relaxed text-foreground/90">
+                    <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" />
+                    <span>{area}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 rounded-[1rem] border border-border/80 bg-secondary/40 px-4 py-4">
+                <p className="font-mono text-[0.64rem] uppercase tracking-[0.25em] text-muted-foreground">Now Building</p>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/90">
+                  Human-centered web apps with expressive interfaces and measurable product signals.
+                </p>
+              </div>
+            </div>
+
+            <div className="pointer-events-none absolute -right-12 -top-12 -z-10 h-36 w-36 rounded-full bg-accent/25 blur-3xl" />
+          </motion.aside>
+        </div>
       </div>
     </section>
   );

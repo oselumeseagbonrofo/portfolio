@@ -156,7 +156,8 @@ export function AnimatedCard({
             style={{
               position: 'absolute',
               inset: -2,
-              background: `radial-gradient(circle at center, ${glowColor}, transparent 70%)`,
+              backgroundColor: glowColor,
+              opacity: 0.08,
               borderRadius: 'inherit',
               zIndex: -1,
               pointerEvents: 'none',
