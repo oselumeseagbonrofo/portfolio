@@ -1,5 +1,5 @@
-import { getAllPosts } from '@/lib/blog';
-import { BlogList } from './BlogList';
+import { getAllPosts } from "@/lib/blog";
+import { BlogList } from "./BlogList";
 
 export default async function Blog() {
   const posts = await getAllPosts();
@@ -13,11 +13,13 @@ export default async function Blog() {
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
               Notes and Essays
             </span>
-            <h1 className="section-title mt-6 text-balance">Documenting lessons from products, AI, and implementation.</h1>
+            <h1 className="section-title mt-6 text-balance">
+              Documenting lessons from products, AI, and implementation.
+            </h1>
           </div>
 
           <p className="section-subtitle lg:justify-self-end">
-            Technical reflections on what worked, what failed, and how to build better systems with clarity.
+            Reflections on technical builds, tech trends and observations
           </p>
         </div>
 

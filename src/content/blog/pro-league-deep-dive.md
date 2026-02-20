@@ -3,7 +3,7 @@ title: "Building the Pro League Manager: A Deep Dive"
 date: "2026-01-10"
 excerpt: "How I built a full-stack tournament management system using Next.js 14, Supabase, and PostgreSQL."
 category: "Development"
-readTime: "10 min read"
+readTime: "5 min read"
 ---
 
 Creating a robust tournament management system requires a careful balance of real-time updates, complex data relationships, and a seamless user experience. Here's how I approached the development of the **Pro League Manager**.
